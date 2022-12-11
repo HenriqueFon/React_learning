@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-const ManageUserDataJson = () => {
+const ManageUserDataPreviousState = () => {
     const clientData =
         [{
             "id": 1,
@@ -802,33 +802,32 @@ const ManageUserDataJson = () => {
             "ip_address": "101.60.18.68",
             "city": "San Agustín Acasaguastlán"
         }];
-    
-    //  const userData = clientData.map(search => {
-    //     const jsonData = {
-    //         id:search.id,
-    //         first_name:search.name,
-    //         email:search.email,
-    //         gender:search.gender,
-    //         city:search.city
-    //     }
-    //     return jsonData;
-    //  });
 
-    const [list] = useState(clientData);
-    
-    const [users] = useState([{id:1,name:"Mathees"}, {id:7328782783,name:"Pedro"}])
+    const [list,setList] = useState(clientData);
 
+    const deleteRandom = () => {
+        //delete user where id == 50, no caso sidonia
+        const randomNumber = 50;
+
+        setList((prevList) => {
+            return prevList.filter((user) => randomNumber !== user.id);
+        })
+    }
 
     return(
         <div>
-            <ul>
-                {/* o map possui um segundo parametro que conta quantas iterações aquele array teve,
-                aí todo metodo map que renderiza algo em react precisa de uma key*/}
-                {list.map(search => <li key = {clientData.id}>{search.first_name}</li>)}
-                {list.map((search,i) => <li key = {i}>{search.city}</li>)}
-            </ul>
+            <div>
+                <ul>
+                    {/* o map possui um segundo parametro que conta quantas iterações aquele array teve,
+                    aí todo metodo map que renderiza algo em react precisa de uma key*/}
+                    {list.map(search => <li key = {clientData.id}>{search.first_name}</li>)}
+                </ul>
+            </div>
+            <div>
+                <button onClick = {deleteRandom}>Delete random user</button>
+            </div>
         </div>
     )
 }
 
-export default ManageUserDataJson;
+export default ManageUserDataPreviousState;
