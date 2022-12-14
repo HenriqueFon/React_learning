@@ -1,0 +1,10 @@
+/*CSS global*/
+.body {
+  /*Reseta características padrão do documento*/
+  margin:0;
+  padding: 0;
+  
+  /*Configurações que desejo no meu projeto*/
+  font-family:Arial, Helvetica, sans-serif;
+  padding-bottom: 500px;
+}
